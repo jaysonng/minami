@@ -378,17 +378,19 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     var itemsNav = ""
 
     nav.push(buildNavHeading(itemHeading))
-
+    
     items.forEach(function(item) {
       var methods = find({ kind: "function", memberof: item.longname })
       var members = find({ kind: "member", memberof: item.longname })
+      var interfaces = find({ kind: "interface", memberof: item.longname })
+
       var displayName
 
       if (!hasOwnProp.call(item, "longname")) {
         nav.push(buildNavItem(linkfoFn('', item.name)))
         return
       }
-      
+
       if (!hasOwnProp.call(itemsSeen, item.longname)) {
         if (!!conf.default.useLongnameInNav) {
           displayName = item.longname
@@ -419,6 +421,14 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
             }
 
             nav.push(buildNavItem(buildNavType(method.kind, linkto(method.longname, method.name))))
+          })
+        }
+
+        if (interfaces.length) {
+          interfaces.forEach(function(interface) {
+            // Mark the interface as seen
+            itemsSeen[interface.longname] = true
+            nav.push(buildNavItem(buildNavType(interface.kind, linkto(interface.longname, interface.name))))
           })
         }
 
@@ -734,7 +744,23 @@ exports.publish = function(taffyData, opts, tutorials) {
   var mixins = taffy(members.mixins)
   var externals = taffy(members.externals)
   var interfaces = taffy(members.interfaces)
-
+  // Inject back the links to the modules objects if they don't conflict
+  Object.keys(helper.longnameToUrl).forEach((longname) => {
+    if (longname.startsWith('module:')) {
+      const fullname = longname.replace('module:', '');
+      const split = longname.split('~'); // get only the rifht part
+      const name = split[1];
+      if (!name) {
+        return;
+      }
+      if (helper.longnameToUrl[name]) {
+        const module = split[0];
+        console.log(`A an object with ${name} in module ${module} already exists... aborting`);
+        return;
+      }
+      helper.longnameToUrl[name] = helper.longnameToUrl[longname];
+    }
+  })
   Object.keys(helper.longnameToUrl).forEach(function(longname) {
     var myModules = helper.find(modules, { longname: longname })
     if (myModules.length) {

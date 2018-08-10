@@ -1,4 +1,52 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,500i,500,600,600i|Roboto);
+@font-face {
+  font-family: 'webfont_din-regular';
+  src: url('https://docs.parseplatform.org/assets/fonts/din17sbop-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'webfont_input';
+  src: url('https://docs.parseplatform.org/assets/fonts/d94de4bd-16a6-4c19-81bd-ed8f4e1624c6-3.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'webfont_alright';
+  src: url('https://docs.parseplatform.org/assets/fonts/ttfah-AlrightSubLPWebfontUseOnly-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'webfont_alright';
+  src: url('https://docs.parseplatform.org/assets/fonts/ttfah-AlrightSubLPWebfontUseOnly-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'webfont_alright';
+  src: url('https://docs.parseplatform.org/assets/fonts/ttfah-AlrightSubLPWebfontUseOnly-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'webfont_alright';
+  src: url('https://docs.parseplatform.org/assets/fonts/ttfah-AlrightSubLPWebfontUseOnly-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'webfont_alright';
+  src: url('https://docs.parseplatform.org/assets/fonts/ttfah-AlrightSubLPWebfontUseOnly-Bold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
 
 * {
   box-sizing: border-box
@@ -14,7 +62,7 @@ body {
   background-color: white;
   margin: 0 auto;
   padding: 0;
-  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  font-family: 'webfont_alright', Helvetica, sans-serif;
   font-size: 16px;
   line-height: 160%;
 }
@@ -34,7 +82,7 @@ p, ul, ol, blockquote {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'webfont_alright', 'Roboto', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -90,7 +138,7 @@ h6 {
 }
 
 tt, code, kbd, samp {
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: 'webfont_input', Consolas, Monaco, 'Andale Mono', monospace;
   background: #f4f4f4;
   padding: 1px 5px;
   border-radius: 5px;
@@ -222,7 +270,7 @@ section {
 nav {
   float: left;
   display: block;
-  width: 250px;
+  width: 280px;
   background: #fff;
   overflow: auto;
   position: fixed;
@@ -321,7 +369,7 @@ footer {
 }
 
 .name, .signature {
-  font-family: Consolas, Monaco, 'Andale Mono', monospace
+  font-family: 'webfont_input', Consolas, Monaco, 'Andale Mono', monospace
 }
 
 .details {
@@ -451,7 +499,7 @@ footer {
 
 .params .name, .props .name, .name code {
    color: #4D4E53;
-   font-family: Consolas, Monaco, 'Andale Mono', monospace;
+   font-family: 'webfont_input', Consolas, Monaco, 'Andale Mono', monospace;
    font-size: 100%;
 }
 
@@ -499,7 +547,7 @@ dl.param-type {
 }
 
 .param-type dd {
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: 'webfont_input';
   display: inline-block;
   padding: 0;
   margin: 0;

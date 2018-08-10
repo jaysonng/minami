@@ -1,9 +1,6 @@
-# Minami
+# @parse/minami
 
-A clean, responsive documentation template theme for JSDoc 3.
-
-![Minami Screenshot](http://i.imgur.com/rPCIFqT.png)
-
+The docs template for parse community jsdocs
 
 ## Uses
 
@@ -15,7 +12,7 @@ A clean, responsive documentation template theme for JSDoc 3.
 ## Install
 
 ```bash
-$ npm install --save-dev minami
+$ npm install --save-dev @parse/minami
 ```
 
 
@@ -24,7 +21,7 @@ $ npm install --save-dev minami
 Clone repository to your designated `jsdoc` template directory, then:
 
 ```bash
-$ jsdoc entry-file.js -t path/to/minami
+$ jsdoc entry-file.js -t @parse/minami
 ```
 
 
@@ -42,7 +39,7 @@ In your `.jsdoc.json` file, add a template option.
 
 ```json
 "opts": {
-  "template": "node_modules/minami"
+  "template": "node_modules/@parse/minami"
 }
 ```
 
@@ -74,7 +71,7 @@ In your `.jsdoc.json` file, add a template option.
         "encoding": "utf8",
         "private": true,
         "recurse": true,
-        "template": "./node_modules/minami"
+        "template": "./node_modules/@parse/minami"
     }
 }
 ```
